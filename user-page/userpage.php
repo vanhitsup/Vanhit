@@ -15,46 +15,117 @@ $result = $conn -> query($sql);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>VietAnhIts.com</title>
-
+    <title>VietanhIts.com</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link href="../resources/views/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <link href="../resources/views/css/shop-homepage.css" rel="stylesheet">
+    <style type="text/css">
+      .header{
+            height: 60px;
+         background-color: #4e73df;
+          margin-top: -56px;
+        }
+        .header .contact1{
+            color: white;
+            text-decoration: none;
+        }
+        .search{
+            margin-top: 8px;
+            margin-left: 60px;
+        }
+      .input {
+          outline: none;
+      }
+     .input[type=search] {
+          -webkit-appearance: textfield;
+          -webkit-box-sizing: content-box;
+          font-family: inherit;
+          font-size: 100%;
+      }
+      .input::-webkit-search-decoration,
+      .input::-webkit-search-cancel-button {
+          display: none;
+      }
 
+
+      .input[type=search] {
+          background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+          border: solid 1px #ccc;
+          padding: 9px 10px 9px 32px;
+          width: 55px;
+
+          -webkit-border-radius: 10em;
+          -moz-border-radius: 10em;
+          border-radius: 10em;
+
+          -webkit-transition: all .5s;
+          -moz-transition: all .5s;
+          transition: all .5s;
+      }
+      .input[type=search]:focus {
+          width: 150px;
+          background-color: #fff;
+          border-color: #66CC75;
+
+          -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+          -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+          box-shadow: 0 0 5px rgba(109,207,246,.5);
+      }
+
+
+      .input:-moz-placeholder {
+          color: #999;
+      }
+      .input::-webkit-input-placeholder {
+          color: #999;
+      }
+        .login-user{
+            margin: -30px 0 0 1000px;
+        }
+    </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="userpage.php" style="font-weight: bold;font-size:30px;color:white">VietAnhITs.com</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <?php if(isset($_SESSION["fullname"])):?>
-                    <p style="color: white;margin-top: 8px">Xin chào: <?php echo $_SESSION["fullname"]?></p>
-                    <?php endif;?>
-                </li>
+<!-- Header-->
+<nav>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 contact " style="margin-top: 20px">
+                    <a href="#" class="contact1" style="cursor: pointer" ><i class="fas fa-phone"></i>+84.854.572.098</a>
+                </div>
 
-                <li class="nav-item">
-                    <a class="nav-link" ></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../login/logout.php">Logout</a>
-                </li>
-            </ul>
+                <div class="col-md-4 search" >
+                    <form>
+                        <input class="input" type="search" placeholder="Search">
+                    </form>
+
+                </div>
+                <div class="col-md-4 login-user"  style="color: white">
+                    <i class="far fa-user"></i>
+                    <a style="margin-right: 10px">
+                        <?php if(isset($_SESSION["fullname"])):?>
+                            <?php echo $_SESSION["fullname"]?>
+                        <?php endif;?>
+                    </a>
+                   <a href="../login/logout.php"><button class="btn btn-success btn-sm">Logout</button></a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
 
+
+
+
+<div class="logo" style="height: 100px;margin:10px 0 0 0">
+    <img src="../resources/VietanhITs.com.png" style="height: 150px; margin: 13px 500px" >
+</div>
 <!-- Page Content -->
 <div class="container">
 
     <div class="row">
-
 
         <div class="col-lg-12">
 
@@ -122,12 +193,46 @@ $result = $conn -> query($sql);
 <!-- /.container -->
 
 <!-- Footer -->
-<footer class="py-5 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; 2020 by PhamTranVietAnh</p>
+<div class="clearfix">
+</div>
+<div class="footer" style="margin-bottom: -30px;background-color:#4e73df">
+    <div class="footer-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"  style="color: white">
+                    <h5 style="font-weight: bold;margin-top: 10px">   Về chúng tôi</h5>
+                    <hr>
+                    <p>Luôn đi đầu trong lĩnh vực về thiết bị Laptop. Chúng tôi chuyên cung cấp các loại Laptop phù hợp với nhu cầu người sử dụng
+                        . Luôn cung cấp các loại Laptop đẹp - chất lượng.
+                    </p>
+                </div>
+
+                <div class="col-md-4" style="color: white;margin-top: 50px">
+                    <h5> Copyright © 2020. by VietAnhITs.com</h5>
+                </div>
+
+                <div class="col-md-4" style="text-align: center;color: white">
+                    <h5  style="font-weight: bold;margin-top: 10px">Liên hệ</h5>
+                    <hr>
+                    <div class="icon" style="font-size: 20px">
+                        <div class="fb" style="margin:0 0 10px 8px">
+                            <a style="margin-right: 10px"><i class="fab fa-facebook"></i></a> Facebook
+                        </div>
+                        <div class="ytb"  style="margin:0 0 10px -8px">
+                            <a style="margin-right: 10px"><i class="fab fa-youtube"></i></a>Youtube
+                        </div>
+                        <div class="ig"  style="margin:0 0 0 4px">
+                            <a style="margin-right: 10px"><i class="fab fa-instagram"></i></a>Instagram
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
     </div>
-    <!-- /.container -->
-</footer>
+</div>
 
 <!-- Bootstrap core JavaScript -->
 <script src="../resources/views/vendor/jquery/jquery.min.js"></script>

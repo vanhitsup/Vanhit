@@ -17,9 +17,10 @@ $row = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
-       VietAnhITs.com
+       VietanhITs.com
     </title>
     <link href="../resources/detail/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
     <link href="../resources/detail/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../resources/detail/css/flexslider.css" type="text/css" media="screen"/>
@@ -32,48 +33,12 @@ $row = $result->fetch_assoc();
     <![endif]-->
 </head>
 <body>
-
-<div class="wrapper">
-    <div class="header">
-        <div class="container">
-            <div class="row">
-
-                <div class="clearfix">
-                </div>
-                <div class="header_bottom">
-                    <ul class="option">
-                        <li id="search" class="search">
-                            <form>
-                                <input class="search-submit" type="submit" value="">
-                                <input class="search-input" placeholder="Enter your search term..." type="text" value="" name="search">
-                            </form>
-                        </li>
-                        <li class="option-cart">
-
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">
-                      Toggle navigation
-                    </span>
-                            <span class="icon-bar">
-                    </span>
-                            <span class="icon-bar">
-                    </span>
-                            <span class="icon-bar">
-                    </span>
-                        </button>
-                    </div>
-                    <div class="navbar-collapse collapse">
-
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="footer" style="background-color:#4e73df;height: 60px">
+    <div class="footer-info">
+        PTVanh
     </div>
-    <div class="clearfix">
-    </div>
-
 </div>
+<!-- Body -->
 <div class="clearfix">
 </div>
 <div class="container_fullwidth">
@@ -243,9 +208,42 @@ $row = $result->fetch_assoc();
 </div>
 <div class="clearfix">
 </div>
-<div class="footer">
+<div class="footer" style="margin-bottom: -30px;background-color:#4e73df">
     <div class="footer-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"  style="color: white">
+                <h5 style="font-weight: bold">   Về chúng tôi</h5>
+                    <hr>
+                    <p>Luôn đi đầu trong lĩnh vực về thiết bị Laptop. Chúng tôi chuyên cung cấp các loại Laptop phù hợp với nhu cầu người sử dụng
+                    . Luôn cung cấp các loại Laptop đẹp - chất lượng.
+                    </p>
+                </div>
 
+                <div class="col-md-4" style="color: white">
+                   <h5> © 2020 VietAnhITs.com. All rights reserved.</h5>
+                </div>
+
+                <div class="col-md-4" style="text-align: center;color: white">
+                    <h5  style="font-weight: bold">Liên hệ</h5>
+                    <hr>
+                    <div class="icon" style="font-size: 20px">
+                       <div class="fb" style="margin:0 0 10px 8px">
+                           <a style="margin-right: 10px"><i class="fab fa-facebook" style="color: white"></i></a> Facebook
+                       </div>
+                        <div class="ytb"  style="margin:0 0 10px -8px">
+                            <a style="margin-right: 10px"><i class="fab fa-youtube" style="color: white"></i></a>Youtube
+                        </div>
+                        <div class="ig"  style="margin:0 0 0 4px">
+                            <a style="margin-right: 10px"><i class="fab fa-instagram" style="color: white"></i></a>Instagram
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
     </div>
 </div>
 <!-- Bootstrap core JavaScript==================================================-->
