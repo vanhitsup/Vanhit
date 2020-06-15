@@ -1,73 +1,26 @@
 <?php
-// nạp file kết nối CSDL
 include_once "../../admin/connect.php";
-$id = intval($_GET['id']);
+//Lấy id từ trên url xuống
+$id = (int) $_GET["id"];
 $sqlSelect = "SELECT * FROM category WHERE id=".$id;
 $result = $conn->query($sqlSelect);
 $row = $result->fetch_assoc();
-?>
-<?php
-// nạp file kết nối CSDL
-include_once "../../admin/connect.php";
-$nameproduct="";
-$brand="";
-$number="";
-$image="";
-$price="";
-$note="";
-$configuration="";
-$screencard="";
-$weight="";
-$chipset="";
-$harddisk="";
-
-
-
 /**
  * Kiểm tra xem có dữ liệu submit đi hay không
  * !empty($_POST) có nghĩa là không rỗng tức là có dữ liệu trong mảng này
  * isset($_POST) dùng để kiểm tra biến có tồn tại hay không
  */
-if (isset($_POST) && !empty($_POST)&& isset($_POST["id"])) {
+if (isset($_POST) && !empty($_POST) && isset($_POST["id"])) {
     //Tạo ra 1 biến để check lỗi mặc định là rỗng
     $errors = array();
-    //!isset($_POST["name"]) => không tồn tại
-    //empty($_POST["name"]) => rỗng
-    if (!isset($_POST["nameproduct"]) || empty($_POST["nameproduct"])) {
-        $errors[] = "Tên sản phẩm không hợp lệ";
-    }
-    if (!isset($_POST["brand"]) || empty($_POST["brand"])) {
-        $errors[] = "Hãng không hợp lệ";
-    }
-    if (!isset($_POST["number"]) || empty($_POST["number"])) {
-        $errors[] = "Số lượng không hợp lệ";
-    }
-    if (!isset($_POST["price"]) || empty($_POST["price"])) {
-        $errors[] = "Giá tiền không hợp lệ";
-    }
-    if (!isset($_POST["note"]) || empty($_POST["note"])) {
-        $errors[] = "Mô tả không hợp lệ";
-    }
-    if (!isset($_POST["configuration"]) || empty($_POST["configuration"])) {
-        $errors[] = "Cấu hình không hợp lệ";
-    }
-    if (!isset($_POST["screencard"]) || empty($_POST["screencard"])) {
-        $errors[] = "Card màn hình không hợp lệ";
-    }if (!isset($_POST["weight"]) || empty($_POST["weight"])) {
-        $errors[] = "Trọng lượng không hợp lệ";
-    }
-    if (!isset($_POST["chipset"]) || empty($_POST["chipset"])) {
-        $errors[] = "Chipset không hợp lệ";
-    }
-    if (!isset($_POST["harddisk"]) || empty($_POST["harddisk"])) {
-        $errors[] = "Ổ đĩa cứng không hợp lệ";
-    }
+
     //$errors rỗng tức là không có lỗi
     if (empty($errors)) {
+
         $nameproduct = $_POST['nameproduct'];
         $brand = $_POST['brand'];
         $number = $_POST['number'];
-        $id=$_POST["id"];
+        $id=(int)$_POST["id"];
         $price = $_POST['price'];
         $note = $_POST['note'];
         $configuration=$_POST['configuration'] ;
@@ -75,95 +28,45 @@ if (isset($_POST) && !empty($_POST)&& isset($_POST["id"])) {
         $weight=$_POST['weight'];
         $chipset=$_POST['chipset'];
         $harddisk=$_POST['harddisk'];
-
-            //Thư mục upload file
-            $target="C:/xampp/htdocs/Project-ITPLus_Final-master/resources/upload/";
-            //Vị trí file lưu tạm trong Server
-            $target_file=$target.basename($_FILES["image"]["name"]);
-            $allowUpload=true;
-
-            //Lấy phần mở rọng của file
-            $imageFileType= pathinfo($target_file,PATHINFO_EXTENSION);
-            $maxfilesize= 800000;//(bytes)
-            ////Những loại file được phép UPload
-            $allowTypes= array('jpg','png','jpeg','gif');
-
-            $check = getimagesize($_FILES["image"]["tmp_name"]);
-            if($check !== false) {
-                $allowUpload = true;
-            }else{
-                $errors[] = "Ảnh không hợp lệ";
-                $allowUpload=false;
-            }
-
-            // Check if $uploadOk is set to 0 by an error
-            if ($allowUpload) {
-                if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file))
-                {
-
-                    $image = $_FILES['image']['name'];
-                    $sqlUpdate = "UPDATE category  SET name='$nameproduct',brand='$brand',number=$number,image='$image',price='$price',note='$note',configuration='$configuration',screencard='$screencard',weight='$weight',chipset='$chipset',harddisk='$harddisk' WHERE id=$id";
-                    $result = $conn->query($sqlUpdate);
-                    $result->execute();
-                    if ($result == true) {
-                        echo "<p class='alert alert-success'>Sửa thành công !</p>";
-                        header("Location:../category.php");
-                    } else {
-                        echo "<p class='alert alert-danger'>Sửa thất bại !</p>";
-                    }
-                }
-                else
-                {
-                    $errors[] = "Lỗi upload ảnh";
-                }
-            }
-            else
-            {
-                $errors[] = "Không upload đc ảnh";
-            }
+        $image=$_FILES['image'];
 
 
-
+        $sqlUpdate = "UPDATE category  SET name='$nameproduct',brand='$brand',number=$number,image='$image',price='$price',note='$note',configuration='$configuration',screencard='$screencard',weight='$weight',chipset='$chipset',harddisk='$harddisk' WHERE id=$id";
+        // Thực hiện câu SQL
+        $result = $conn->query($sqlUpdate);
+        if ($result == true) {
+            echo "<div class='alert alert-success'>Sửa thành công ! <a href='../adminpage.php'>Trang chủ</a></div>";
+        } else {
+            echo "<div class='alert alert-danger'>Sửa thất bại !</div>";
+        }
     }else{
         // Chuyển mảng $errors thành chuỗi = hàm implode()
         $errors_string = implode("<br>", $errors);
         echo "<div class='alert alert-danger'>$errors_string</div>";
     }
+
 }
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>VanhITs.com</title>
-
     <!-- Custom fonts for this template -->
     <link href="../../resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="../../resources/css/sb-admin-2.min.css" rel="stylesheet">
-
     <!-- Custom styles for this page -->
     <link href="../../resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
 </head>
-
 <body id="page-top">
-
 <!-- Page Wrapper -->
 <div id="wrapper">
-
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -328,7 +231,7 @@ if (isset($_POST) && !empty($_POST)&& isset($_POST["id"])) {
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Edit Product</h1>
+                <h1 class="h3 mb-2 text-gray-800">Create New Product</h1>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">

@@ -242,7 +242,7 @@ $result = $conn -> query($sql);
                                                 <img style="width: 50px; height: 50px" src="http://localhost/Project-ITPLus_Final-master/resources/upload/<?php echo $row["image"] ?>">
 
                                             </td>
-                                            <td><?php echo $row["price"] ?></td>
+                                            <td><?php echo number_format($row["price"]) ."đ"?></td>
                                             <td><?php echo $row["note"] ?></td>
                                             <td><?php echo $row["configuration"] ?></td>
                                             <td><?php echo $row["screencard"] ?></td>

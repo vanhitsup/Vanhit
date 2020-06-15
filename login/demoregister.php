@@ -1,5 +1,4 @@
 <?php
-
 include_once "../admin/connect.php";
 if (isset($_POST) && !empty($_POST)) {
 
@@ -55,7 +54,6 @@ if (isset($_POST) && !empty($_POST)) {
         echo "</div>";
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -22,7 +22,7 @@ $result = $conn -> query($sql);
     <link href="../resources/views/css/shop-homepage.css" rel="stylesheet">
     <style type="text/css">
       .header{
-            height: 60px;
+            height: 70px;
          background-color: #4e73df;
           margin-top: -56px;
         }
@@ -93,7 +93,7 @@ $result = $conn -> query($sql);
         <div class="container">
             <div class="row">
                 <div class="col-md-4 contact " style="margin-top: 20px">
-                    <a href="#" class="contact1" style="cursor: pointer" ><i class="fas fa-phone"></i>+84.854.572.098</a>
+                    <a href="#" class="contact1" style="cursor: pointer" >-Contact <i class="fas fa-phone"></i>+84.854.572.098</a>
                 </div>
 
                 <div class="col-md-4 search" >
@@ -137,10 +137,10 @@ $result = $conn -> query($sql);
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img class="d-block img-fluid" src="../resources/views/0106_800x300.png" alt="First slide" style="width: 1110px;height: 280px">
+                        <img class="d-block img-fluid"src="../resources/views/3005_Thng-6-comeback-_800x300.png" alt="First slide" style="width: 1110px;height: 280px">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block img-fluid" src="../resources/views/3005_Thng-6-comeback-_800x300.png" alt="Second slide"  style="width: 1110px; height: 280px">
+                        <img class="d-block img-fluid" src="../resources/views/0106_800x300.png"  alt="Second slide"  style="width: 1110px; height: 280px">
                     </div>
                     <div class="carousel-item">
                         <img class="d-block img-fluid" src="../resources/views/0603-MSI-tintuc.png" alt="Third slide"  style="width: 1110px; height: 280px">
@@ -165,7 +165,7 @@ $result = $conn -> query($sql);
                                 <h4 class="card-title">
                                     <a href="viewdetail.php?id=<?php echo $item["id"]?>"><?php echo $item["name"] ?></a>
                                 </h4>
-                                <h5><?php echo $item["price"] ?></h5>
+                                <h5><?php echo number_format($item["price"]) ."đ" ?></h5>
                                 <ul>
                                     <li><p class="card-text"><?php echo $item["note"] ?></p></li>
                                     <li><p class="card-text"><?php echo $item["harddisk"] ?></p></li>

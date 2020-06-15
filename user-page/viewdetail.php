@@ -33,15 +33,23 @@ $row = $result->fetch_assoc();
     <![endif]-->
 </head>
 <body>
-<div class="footer" style="background-color:#4e73df;height: 60px">
-    <div class="footer-info">
-        PTVanh
+
+<div class="headerpage" style="background-color:#4e73df;height: 60px">
+    <div class="header-info">
+       aaaaaaaaaaaa
     </div>
 </div>
+
+
+
+
 <!-- Body -->
 <div class="clearfix">
 </div>
 <div class="container_fullwidth">
+    <h4 style="text-align: center;font-weight: bold">Thông tin chi tiết sản phẩm : Laptop <?php
+        echo $row['name'];
+        ?></h4>
     <div class="container">
         <div class="row">
             <div class="col-md-9" >
@@ -103,7 +111,7 @@ $row = $result->fetch_assoc();
                         <hr class="border">
                         <div class="price">
                             <span class="new_price">
-                            <?php echo $row['price'] ?>
+                            <?php echo number_format($row['price']) ."đ" ?>
                     </span>
 
                         </div>
@@ -118,8 +126,8 @@ $row = $result->fetch_assoc();
                                 </select>
                             </div>
                             <div class="button_group">
-                                <button class="button" >
-                                    Add To Cart
+                                <button class="button">
+                                    <a href="cart.php?id=<?php echo $row["id"] ?>">Add To Cart</a>
                                 </button>
                                 <button class="button compare">
                                     <i class="fa fa-exchange">
@@ -149,16 +157,6 @@ $row = $result->fetch_assoc();
                             <li>
                                 <a href="">
                                     Thông số kỹ thuật:
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    REVIEW
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    PRODUCT TAGS
                                 </a>
                             </li>
                         </ul>
