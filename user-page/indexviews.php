@@ -37,54 +37,8 @@ $result = $conn -> query($sql);
             margin-top: 8px;
             margin-left: 60px;
         }
-        .input {
-            outline: none;
-        }
-        .input[type=search] {
-            -webkit-appearance: textfield;
-            -webkit-box-sizing: content-box;
-            font-family: inherit;
-            font-size: 100%;
-        }
-        .input::-webkit-search-decoration,
-        .input::-webkit-search-cancel-button {
-            display: none;
-        }
-
-
-        .input[type=search] {
-            background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
-            border: solid 1px #ccc;
-            padding: 9px 10px 9px 32px;
-            width: 55px;
-
-            -webkit-border-radius: 10em;
-            -moz-border-radius: 10em;
-            border-radius: 10em;
-
-            -webkit-transition: all .5s;
-            -moz-transition: all .5s;
-            transition: all .5s;
-        }
-        .input[type=search]:focus {
-            width: 150px;
-            background-color: #fff;
-            border-color: #66CC75;
-
-            -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
-            -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
-            box-shadow: 0 0 5px rgba(109,207,246,.5);
-        }
-
-
-        .input:-moz-placeholder {
-            color: #999;
-        }
-        .input::-webkit-input-placeholder {
-            color: #999;
-        }
         .login-user{
-            margin: -30px 0 0 1000px;
+            margin: -30px 0 0 900px;
         }
         .login-user a{
             text-decoration: none;
@@ -104,9 +58,6 @@ $result = $conn -> query($sql);
                 </div>
 
                 <div class="col-md-4 search" >
-                    <form>
-                        <input class="input" type="search" placeholder="Search">
-                    </form>
 
                 </div>
                 <div class="col-md-4 login-user"  style="color: white">
@@ -161,16 +112,16 @@ $result = $conn -> query($sql);
                 <?php foreach ($result as $key=>$item) {?>
                 <div class="col-lg-3 col-md-6 mb-3">
                     <div class="card h-100">
-                        <a href="#"><img class="card-img-top"  src="http://localhost/Project-ITPLus_Final-master/resources/upload/<?php echo $item["image"] ?>" style="height: 185px"></a>
+                        <a href="#"><img class="card-img-top"  src="http://localhost/PhamTranVietAnh_1019E_SKDA/resources/upload/<?php echo $item["image"] ?>" style="height: 185px"></a>
                         <div class="card-body">
                             <h4 class="card-title">
                                 <a href="viewdetail.php?id=<?php echo $item["id"]?>"><?php echo $item["name"] ?></a>
                             </h4>
                             <h5><?php echo number_format($item["price"]) ."đ" ?></h5>
                             <ul>
-                                <li><p class="card-text"><?php echo $item["note"] ?></p></li>
-                                <li><p class="card-text"><?php echo $item["harddisk"] ?></p></li>
-                                <li><p class="card-text"><?php echo $item["weight"] ?></p></li>
+                                <li><p class="card-text"><?php echo "Màu sắc: ".$item["note"] ?></p></li>
+                                <li><p class="card-text"><?php echo "Ổ Cứng: ".$item["harddisk"] ?></p></li>
+                                <li><p class="card-text"><?php echo "Kích thước: ".$item["weight"] ?></p></li>
 
                             </ul>
 

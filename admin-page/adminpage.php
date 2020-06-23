@@ -102,10 +102,6 @@
             </div>
         </li>
 
-
-
-
-
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
@@ -113,10 +109,7 @@
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
-
     </ul>
-    <!-- End of Sidebar -->
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -204,8 +197,6 @@
                         </div>
                     </li>
 
-
-
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
@@ -239,8 +230,6 @@
                 </ul>
 
             </nav>
-            <!-- End of Topbar -->
-
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
@@ -266,8 +255,6 @@
 
                             </div>
                         </div>
-
-
                     </div>
 
                     <!-- Donut Chart -->

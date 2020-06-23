@@ -236,19 +236,19 @@ $result = $conn -> query($sql);
                                             <td><?php echo $i; $i++; ?></td>
                                             <td><?php echo $row["id"] ?></td>
                                             <td><?php echo $row["name"]?></td>
-                                            <td><?php echo $row["brand"] ?></td>
+                                            <td><?php echo "Hãng: ".$row["brand"] ?></td>
                                             <td><?php echo $row["number"] ?></td>
                                             <td>
-                                                <img style="width: 50px; height: 50px" src="http://localhost/Project-ITPLus_Final-master/resources/upload/<?php echo $row["image"] ?>">
+                                                <img style="width: 50px; height: 50px" src="http://localhost/PhamTranVietAnh_1019E_SKDA/resources/upload/<?php echo $row["image"] ?>">
 
                                             </td>
                                             <td><?php echo number_format($row["price"]) ."đ"?></td>
-                                            <td><?php echo $row["note"] ?></td>
-                                            <td><?php echo $row["configuration"] ?></td>
-                                            <td><?php echo $row["screencard"] ?></td>
-                                            <td><?php echo $row["weight"] ?></td>
-                                            <td><?php echo $row["chipset"] ?></td>
-                                            <td><?php echo $row["harddisk"] ?></td>
+                                            <td><?php echo "Màu: ".$row["note"] ?></td>
+                                            <td><?php echo "Cấu hình: ".$row["configuration"] ?></td>
+                                            <td><?php echo "Card đồ họa: ".$row["screencard"] ?></td>
+                                            <td><?php echo "Kích thước: ".$row["weight"] ?></td>
+                                            <td><?php echo "CPU: ".$row["chipset"] ?></td>
+                                            <td><?php echo "Ổ cứng: ".$row["harddisk"] ?></td>
                                             <td>
                                                 <a href="action/edit.php?id=<?php echo $row["id"] ?>" class="btn btn-warning">Sửa</a>
                                                 <a href="action/deleted.php?id=<?php echo $row["id"] ?>" class="btn btn-danger">Xóa</a>
@@ -266,10 +266,7 @@ $result = $conn -> query($sql);
                         </div>
                     </div>
                 </div>
-
             </div>
-            <!-- /.container-fluid -->
-
         </div>
         <!-- End of Main Content -->
 
@@ -282,7 +279,6 @@ $result = $conn -> query($sql);
             </div>
         </footer>
         <!-- End of Footer -->
-
     </div>
     <!-- End of Content Wrapper -->
 

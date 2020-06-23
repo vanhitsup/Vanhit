@@ -36,7 +36,6 @@ $row = $result->fetch_assoc();
 
 <div class="headerpage" style="background-color:#4e73df;height: 60px">
     <div class="header-info">
-       aaaaaaaaaaaa
     </div>
 </div>
 
@@ -47,6 +46,9 @@ $row = $result->fetch_assoc();
 <div class="clearfix">
 </div>
 <div class="container_fullwidth">
+
+    <a href="userpage.php" style="margin-left: 100px"> <button type="button" class="btn btn-success">Quay lại trang chủ</button></a>
+
     <h4 style="text-align: center;font-weight: bold">Thông tin chi tiết sản phẩm : Laptop <?php
         echo $row['name'];
         ?></h4>
@@ -90,7 +92,7 @@ $row = $result->fetch_assoc();
                     <div class="products-description">
                         <h5 class="name">
                             <?php
-                                echo $row['name'];
+                              echo  "Laptop: ".$row['name'];
                             ?>
                         </h5>
                         <p>
@@ -102,7 +104,7 @@ $row = $result->fetch_assoc();
                         <p>
 
                             <span class=" light-red">
-                     <?php echo $row['note'] ?>
+                     <?php echo "Màu sắc: ".$row['note'] ?>
                     </span>
                         </p>
                         <p>
@@ -111,24 +113,15 @@ $row = $result->fetch_assoc();
                         <hr class="border">
                         <div class="price">
                             <span class="new_price">
-                            <?php echo number_format($row['price']) ."đ" ?>
+                            <?php echo "Giá bán :"." ". (number_format($row['price']) ."đ" )?>
                     </span>
 
                         </div>
                         <hr class="border">
                         <div class="wided">
-                            <div class="qty">
-                                Qty &nbsp;&nbsp;:
-                                <select>
-                                    <option>
-                                        1
-                                    </option>
-                                </select>
-                            </div>
+
                             <div class="button_group">
-                                <button class="button">
-                                    <a href="cart.php?id=<?php echo $row["id"] ?>">Add To Cart</a>
-                                </button>
+
                                 <button class="button compare">
                                     <i class="fa fa-exchange">
                                     </i>
@@ -165,14 +158,14 @@ $row = $result->fetch_assoc();
                         <div class="tab-content" id="Descraption">
                             <p >
                             <ul style="font-size: 18px;font-weight:bold">
-                                <li style="margin-bottom: 8px">- <?php echo $row['name'] ?></li>
-                                <li style="margin-bottom: 8px">- <?php echo $row['brand'] ?></li>
-                                <li style="margin-bottom: 8px">- <?php echo $row['note'] ?></li>
-                                <li style="margin-bottom: 8px">- <?php echo $row['configuration'] ?></li>
-                                <li style="margin-bottom: 8px">- <?php echo $row['screencard'] ?></li>
-                                <li style="margin-bottom: 8px">- <?php echo $row['harddisk'] ?></li>
-                                <li style="margin-bottom: 8px">- <?php echo $row['chipset'] ?></li>
-                                <li style="margin-bottom: 8px">- <?php echo $row['weight'] ?></li>
+                                <li style="margin-bottom: 8px">- <?php echo "Laptop: ".$row['name'] ?></li>
+                                <li style="margin-bottom: 8px">- <?php echo "Hãng: ".$row['brand'] ?></li>
+                                <li style="margin-bottom: 8px">- <?php echo "Màu sắc: ".$row['note'] ?></li>
+                                <li style="margin-bottom: 8px">- <?php echo "Hệ điều hành: ".$row['configuration'] ?></li>
+                                <li style="margin-bottom: 8px">- <?php echo "Card đồ họa: ".$row['screencard'] ?></li>
+                                <li style="margin-bottom: 8px">- <?php echo "Ổ cứng: ".$row['harddisk'] ?></li>
+                                <li style="margin-bottom: 8px">- <?php echo "CPU: ".$row['chipset'] ?></li>
+                                <li style="margin-bottom: 8px">- <?php echo "Kích thước: ".$row['weight'] ?></li>
                             </ul>
                             </p>
 

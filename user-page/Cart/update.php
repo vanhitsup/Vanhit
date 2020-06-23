@@ -1,10 +1,11 @@
+
 <?php
 session_start();
-$_SESSION['cart2'];
+$_SESSION['cart'];
 if(isset($_POST['btnupdate'])){
-    foreach ($_POST['qty'] as $key=>$val)
+    foreach ($_POST['qty'] as $key=>$value)
     {
-        $_SESSION['cart2'][$key]['qty']=$val;
+        $_SESSION['cart'][$key]['qty']=$value;
     }
 }
 header("Location: viewcart.php");

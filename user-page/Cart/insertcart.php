@@ -1,35 +1,49 @@
-
 <?php
 session_start();
 require_once "../../admin/connect.php";
-$idproduct=$_GET['id'];
-echo $idproduct;
-$newpr=array();
-foreach ($product as $val ) {
-    $newpr[$val['id']] = $val;
-
+if(isset($_GET['id']) && $_GET['id'] != null)
+{
+    $id = $_GET['id'];
 }
-echo"<pre>";
-print_r( $newpr[$idproduct]);
-//
+$sql= "SELECT *FROM category WHERE id=$id";
+$result = $conn->query($sql);
+$row=$result->fetch_assoc();
 
-if(!isset($_SESSION['cart2'])||$_SESSION['cart2']==null ){
-    $newpr[$idproduct]['qty']=1;
-    $_SESSION['cart2'][$idproduct]=$newpr[$idproduct];
-}
-else{
 
-    echo "Có sản phẩm ";
-    echo "<br>";
-//Cộng thêm 1 lần sản phẩm khi nó đã tồn tại
-    if(array_key_exists($idproduct,$_SESSION['cart2'])){
-        $_SESSION['cart2'][$idproduct]['qty']+=1;
-        print_r($_SESSION['cart2']);
+if($row)
+{
+    if(isset($_SESSION['cart']))
+    {
+        if(isset($_SESSION['cart'][$id]))
+        {
+            $_SESSION['cart'][$id]['qty'] +=1;
+        }
+        else
+        {
+            $_SESSION['cart'][$id]['qty'] = 1;
+
+        }
+        $_SESSION['cart'][$id]['name'] = $row['name'];
+        $_SESSION['cart'][$id]['image'] = $row['image'];
+        $_SESSION['cart'][$id]['price'] = $row['price'];
+        header("Location:../userpage.php");
+
     }
-    else{
-        //thêm sản phẩm khi trong giỏ chưa có
-        $newpr[$idproduct]['qty']=1;
-        $_SESSION['cart2'][$idproduct]=$newpr[$idproduct];
+    else
+    {
+        $_SESSION['cart'][$id]['qty'] = 1;
+        $_SESSION['cart'][$id]['name'] = $row['name'];
+        $_SESSION['cart'][$id]['image'] = $row['image'];
+        $_SESSION['cart'][$id]['price'] = $row['price'];
+
+
+
+        header("Location:../userpage.php");
     }
+
 }
-header("Location: ../userpage.php");
+
+
+
+
+

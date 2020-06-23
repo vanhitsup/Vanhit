@@ -1,26 +1,27 @@
 <?php
 include_once "../admin/connect.php";
+session_start();
 if (isset($_POST) && !empty($_POST)) {
 
     $errors = array();
     if (!isset($_POST["fullname"]) || empty($_POST["fullname"])) {
-        $errors[] = "Fullname không hợp lệ";
+        $errors['fname'] = "Fullname không hợp lệ !";
     }
 
     if (!isset($_POST["username"]) || empty($_POST["username"])) {
-        $errors[] = "Username không hợp lệ";
+        $errors['uname'] = "Username không hợp lệ !";
     }
 
     if (!isset($_POST["password"]) || empty($_POST["password"])) {
-        $errors[] = "password không hợp lệ";
+        $errors['pass'] = "Password không hợp lệ !";
     }
 
     if (!isset($_POST["confirm_password"]) || empty($_POST["confirm_password"])) {
-        $errors[] = "confirm password không hợp lệ";
+        $errors['cpass'] = "Confirm password không hợp lệ !";
     }
 
     if ($_POST["confirm_password"] !== $_POST["password"]) {
-        $errors[] = "Confirm password khác password";
+        $errors['cpass'] = "Confirm password khác password";
     }
 
 
@@ -48,10 +49,7 @@ if (isset($_POST) && !empty($_POST)) {
 
         header("Location: demologin.php");
     } else {
-        $errors_string = implode("<br>", $errors);
-        echo "<div class='alert alert-danger'>";
-        echo $errors_string;
-        echo "</div>";
+        $_SESSION['error'] = "Đăng kí thất bại";
     }
 }
 ?>
@@ -215,17 +213,31 @@ if (isset($_POST) && !empty($_POST)) {
     <form name="login" action="" method="post">
         <div class="input-field">
             <input type="text" placeholder="Full name" name="fullname">
-
+            <?php
+            if(isset($errors['fname'])):  ?>
+            <p class="text-danger" style="font-size: 13px"><i><?php echo $errors['fname']?></i></p>
+            <?php endif;   ?>
         </div>
         <div class="input-field">
-            <input type="text" placeholder=" Username  ?" name="username">
-
+            <input type="text" placeholder=" Enter Username " name="username">
+            <?php
+            if(isset($errors['uname'])):  ?>
+                <p class="text-danger" style="font-size: 13px"><i><?php echo $errors['uname']?></i></p>
+            <?php endif;   ?>
         </div>
         <div class="input-field">
-            <input class="pswrd" type="password" placeholder="Password  ?" name="password">
+            <input class="pswrd" type="password" placeholder="Enter Password " name="password">
+            <?php
+            if(isset($errors['pass'])):  ?>
+                <p class="text-danger" style="font-size: 13px"><i><?php echo $errors['pass']?></i></p>
+            <?php endif;   ?>
         </div>
         <div class="input-field">
-            <input class="pswrd" type="password" placeholder="Confirm Password  ?" name="confirm_password">
+            <input class="pswrd" type="password" placeholder="Confirm Password " name="confirm_password">
+            <?php
+            if(isset($errors['cpass'])):  ?>
+                <p class="text-danger" style="font-size: 13px"><i><?php echo $errors['cpass']?></i></p>
+            <?php endif;   ?>
         </div>
         <div class="button">
             <div class="inner">

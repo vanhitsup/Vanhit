@@ -85,7 +85,7 @@ if (isset($_POST) && !empty($_POST)) {
 
 
             //Thư mục upload file
-            $target="C:/xampp/htdocs/Project-ITPLus_Final-master/resources/upload/";
+            $target="C:/xampp/htdocs/PhamTranVietAnh_1019E_SKDA/resources/upload/";
             //Vị trí file lưu tạm trong Server
             $target_file=$target.basename($_FILES["image"]["name"]);
             $allowUpload=true;
